@@ -77,19 +77,19 @@ public class EmpleadoController extends CommonController<Empleado, EmpleadoSvc, 
 
         empleadoRepository.save(empleado);// se utiliza el metodo save para guardae el objeto empleado
 
-        try {
-            String subject = "Bienvenido a la empresa";
-            String htmlContent = "<p>Estimado " + empleado.getNombre() + ",</p>"
-                    + "<p>Su usuario ha sido creado exitosamente.</p>"
-                    + "<p><strong>Usuario:</strong> " + empleado.getUsuario() + "<br>"
-                    + "<p><strong>Contraseña:</strong> " + empleadoDTO.getContrasenia() + "</p>"
-                    + "<p>Saludos,</p><p>El equipo de Recursos Humanos</p>";
-
-            //emailService.sendHtmlEmail(empleado.getCorreo(), subject, htmlContent);
-        } catch (MessagingException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Collections.singletonMap("error", "Error al enviar el correo de confirmación"));
-        }
+//        try {
+//            String subject = "Bienvenido a la empresa";
+//            String htmlContent = "<p>Estimado " + empleado.getNombre() + ",</p>"
+//                    + "<p>Su usuario ha sido creado exitosamente.</p>"
+//                    + "<p><strong>Usuario:</strong> " + empleado.getUsuario() + "<br>"
+//                    + "<p><strong>Contraseña:</strong> " + empleadoDTO.getContrasenia() + "</p>"
+//                    + "<p>Saludos,</p><p>El equipo de Recursos Humanos</p>";
+//
+//            emailService.sendHtmlEmail(empleado.getCorreo(), subject, htmlContent);
+//        } catch (MessagingException e) {
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+//                    .body(Collections.singletonMap("error", "Error al enviar el correo de confirmación"));
+//        }
 
         // Devuelve un JSON con un mensaje de éxito
         return ResponseEntity.ok(Collections.singletonMap("message", "Empleado registrado con  éxito"));
