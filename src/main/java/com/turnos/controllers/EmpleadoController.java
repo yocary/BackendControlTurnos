@@ -85,7 +85,7 @@ public class EmpleadoController extends CommonController<Empleado, EmpleadoSvc, 
                     + "<p><strong>Contraseña:</strong> " + empleadoDTO.getContrasenia() + "</p>"
                     + "<p>Saludos,</p><p>El equipo de Recursos Humanos</p>";
 
-            emailService.sendHtmlEmail(empleado.getCorreo(), subject, htmlContent);
+            //emailService.sendHtmlEmail(empleado.getCorreo(), subject, htmlContent);
         } catch (MessagingException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(Collections.singletonMap("error", "Error al enviar el correo de confirmación"));
